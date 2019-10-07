@@ -1,16 +1,29 @@
 function App() {
 
+    let mainCanvas;
+
     function initCanvas() {
         let mainCanvasEl = document.getElementById('bezier');
-        let mainCanvas = new BezierDrawer(mainCanvasEl);
+        mainCanvas = new BezierDrawer(mainCanvasEl);
+    } 
+
+    function initEvents(){
+        document.getElementById('reset-button').addEventListener('click', () => {
+            mainCanvas.clear();
+        });
+    }
+    
+    function init() {
+        document.addEventListener('DOMContentLoaded', () => {
+            initCanvas.call(this);
+            initEvents.call(this);
+        });
     }
 
-    this.init = function() {
-        document.addEventListener('DOMContentLoaded', initCanvas.bind(this) );
-    }
+    this.init = init;
 
 }
 
 
-const app = new App();
+const app = new App ();
 app.init();

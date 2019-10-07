@@ -35,4 +35,10 @@ function BezierDrawer(canvasEl) {
         ctx.fill();
     } 
 
+    function clear(){
+        ctx.clearRect(0, 0, canvasEl.width, canvasEl.height)
+    }
+
+    this.clear = clear;
+
 }
